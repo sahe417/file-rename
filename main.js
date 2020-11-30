@@ -8,10 +8,10 @@ const reader = read.createInterface({ input: fs.createReadStream('./rename.csv')
 var filelist = [];
 
 fs.readdir('.', function(err, files){
-    if (err) throw err;
-    filelist = files.filter(function(file){
-        return fs.statSync(file).isFile() && /.*\.pdf$/.test(file);
-    })
+  if (err) throw err;
+	filelist = files.filter(function(file){
+		return fs.statSync(file).isFile() && /.*\.pdf$/.test(file);
+	})
 });
 
 
@@ -29,6 +29,6 @@ reader.on('line', function(line) {
 				console.log("Rename:" + newfile + " OK!!");
 				return true;
 			})
-		} 
+		}
 	})
 })
